@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import _ from 'lodash';
-import { TodoItemProps } from '../components/todoItem/todoItem';
-import { TodoItemList } from '../components/todoItemList/todoItemList';
+import { TodoItemList, TodoItemProps } from '../components/todoItemList/todoItemList';
 
 const initialItems = _.range(100).reverse().map<TodoItemProps>(i => ({name: `Item ${i}`}));
 
