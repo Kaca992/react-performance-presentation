@@ -1,26 +1,17 @@
 import React from 'react';
-import _ from 'lodash';
 
-interface TodoItemListProps {
-    items: TodoItemProps[];
-}
-
-export class TodoItemList extends React.PureComponent<TodoItemListProps> {
-    public render() {
-        return <div>
-            {this.props.items.map(item => <TodoItem name={item.name} options={item.options || []} />)}
-        </div>;
-    }
-}
-
-interface TodoItemProps {
+export interface TodoItemProps {
     name: string;
     options?: any[];
 }
 
 export class TodoItem extends React.PureComponent<TodoItemProps> {
+    public componentDidUpdate() {
+        console.log("Todo item updated", this.props.name);
+    }
+
     public render() {
-        return <div>
+        return <div className="todo-item">
             {this.props.name}
         </div>;
     }

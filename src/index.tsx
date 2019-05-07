@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import configureStore from './store';
 import { Provider } from 'react-redux';
-import { App } from './components/app/app';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import { MutationPage } from './2. Props Mutation';
 
