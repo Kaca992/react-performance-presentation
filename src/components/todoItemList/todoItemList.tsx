@@ -17,7 +17,7 @@ export interface TodoItemProps {
     options?: any[];
 }
 
-class TodoItem extends React.PureComponent<TodoItemProps> {
+class TodoItem extends React.Component<TodoItemProps> {
     public componentDidUpdate() {
         console.log("Todo item updated", this.props.name);
     }
