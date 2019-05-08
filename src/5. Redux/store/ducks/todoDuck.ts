@@ -24,11 +24,3 @@ export const todoReducer = (state: TodoDuckState = initialState, action = {type:
 export const todoItemInfoSelector = (state: RootReducerState, itemId: number) => state.todos.itemsById[itemId];
 
 //#endregion
-
-//#region Actions
-
-enum TodoActionTypes {
-    INIT = "@TODO/INIT"
-}
-
-//#endregion
