@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 export const ChildrenPage: React.FC = (props) => {
     const [state, setState] = useState(0);
 
     return <div>
-        <div className="button" onClick={() => setState(prev => prev + 1)}>Click me</div>
+        <div className="button" onClick={() => setState(prev => prev + 1)}>Click me ({state})</div>
         <LabelComponent label="Test">
             <div>Inner content</div>
         </LabelComponent>
@@ -13,6 +13,9 @@ export const ChildrenPage: React.FC = (props) => {
         </LabelComponent>
         <LabelComponent label="Memmo dummy">
             <MemoDummyElement />
+        </LabelComponent>
+        <LabelComponent label="DummyElementUsesState">
+            <DummyElementUsesState count={state} />
         </LabelComponent>
     </div>;
 }
@@ -26,6 +29,10 @@ class LabelComponent extends React.PureComponent<LabelComponentProps> {
         console.log("Label updated", this.props.label);
     }
 
+    // public shouldComponentUpdate(nextProps: Readonly<LabelComponentProps>): boolean {
+    //     return this.props.label !== nextProps.label;
+    // }
+
     public render() {
         return <div style={{margin: '20px', display: 'flex'}}>
             <div style={{color: 'red',}}>{this.props.label}: </div>
@@ -36,3 +43,4 @@ class LabelComponent extends React.PureComponent<LabelComponentProps> {
 
 const DummyElement: React.FC = () => <div>Inner content 2</div>;
 const MemoDummyElement = React.memo(DummyElement);
+const DummyElementUsesState: React.FC<{count: number}> = (props) => <div>Count: {props.count}</div>;
